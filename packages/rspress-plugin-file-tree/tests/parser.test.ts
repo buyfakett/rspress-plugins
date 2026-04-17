@@ -960,3 +960,34 @@ docs
   expect(pluginDev.type).toBe('file');
   expect(pluginDev.extension).toBe('md');
 });
+
+test('Should correctly identify files with extensions containing underscores and hyphens', () => {
+  const input = `
+├── file.config_dev.js
+├── file.config-prod.json
+├── file.test_spec.ts
+├── file.e2e-test.tsx
+├── component.stories_tsx
+└── style.module_css
+`;
+
+  const result = parseTreeContent(input).nodes;
+
+  result.forEach((node) => {
+    expect(node.type).toBe('file');
+    expect(node.extension).toBeDefined();
+  });
+
+  expect(result[0].name).toBe('file.config_dev.js');
+  expect(result[0].extension).toBe('js');
+  expect(result[1].name).toBe('file.config-prod.json');
+  expect(result[1].extension).toBe('json');
+  expect(result[2].name).toBe('file.test_spec.ts');
+  expect(result[2].extension).toBe('ts');
+  expect(result[3].name).toBe('file.e2e-test.tsx');
+  expect(result[3].extension).toBe('tsx');
+  expect(result[4].name).toBe('component.stories_tsx');
+  expect(result[4].extension).toBe('stories_tsx');
+  expect(result[5].name).toBe('style.module_css');
+  expect(result[5].extension).toBe('module_css');
+});
