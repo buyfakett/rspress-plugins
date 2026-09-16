@@ -1,5 +1,14 @@
 # rspress-plugin-back-to-top
 
+## 1.0.1
+
+### Patch Changes
+
+- ec05827: Ship compiled CSS with the back-to-top component so consumers do not need to
+  configure a Less plugin.
+- Updated dependencies [a59a167]
+  - rspress-plugin-devkit@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

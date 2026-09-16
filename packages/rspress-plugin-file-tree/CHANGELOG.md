@@ -1,5 +1,14 @@
 # rspress-plugin-file-tree
 
+## 1.0.6
+
+### Patch Changes
+
+- a59a167: Resolve the package root from `import.meta.url` and expose the generated entry
+  through package exports so the plugin can be loaded by native Node.js ESM.
+- Updated dependencies [a59a167]
+  - rspress-plugin-devkit@1.0.1
+
 ## 1.0.5
 
 ### Patch Changes
